@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>tenlib.flow API documentation</title>
+<meta name="description" content="Main input/output functions …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>tenlib.flow</code></h1>
+</header>
+<section id="section-intro">
+<p>Main input/output functions.</p>
+<p>Here's a base <code>ten</code> python file layout: </p>
+<pre><code class="language-python">#!/usr/bin/env python
+
+from ten import *
+
+
+@entry
+def main():
+    ...
+
+
+main()
+</code></pre>
+<p>The main coroutine's parameters are automatically mapped to a <code>argparse</code>
+argument (see <code><a title="tenlib.flow.entry" href="#tenlib.flow.entry">entry()</a></code>).</p>
+<p>To display messages, use <code>msg_*</code> functions (<code><a title="tenlib.flow.msg_info" href="#tenlib.flow.msg_info">msg_info()</a></code> or <code><a title="tenlib.flow.msg_success" href="#tenlib.flow.msg_success">msg_success()</a></code> for
+instance).</p>
+<p>If you script fails, you can stop the execution at any time using <code><a title="tenlib.flow.leave" href="#tenlib.flow.leave">leave()</a></code>,
+<code><a title="tenlib.flow.failure" href="#tenlib.flow.failure">failure()</a></code> or <code><a title="tenlib.flow.error" href="#tenlib.flow.error">error()</a></code>. Additionally, use <code><a title="tenlib.flow.assume" href="#tenlib.flow.assume">assume()</a></code> to ensure a condition is valid.
+If it is not, the script will exit.</p>
+<p>Execution can be paused using <code><a title="tenlib.flow.pause" href="#tenlib.flow.pause">pause()</a></code>, or delayed using <code><a title="tenlib.flow.sleep" href="#tenlib.flow.sleep">sleep()</a></code>.</p>
+<p>To inform the user of progress in real time, use <code><a title="tenlib.flow.msg_status" href="#tenlib.flow.msg_status">msg_status()</a></code>, <code><a title="tenlib.flow.progress" href="#tenlib.flow.progress">progress()</a></code>, or
+<code><a title="tenlib.flow.track" href="#tenlib.flow.track">track()</a></code>, or use the <code><a title="tenlib.flow.inform" href="#tenlib.flow.inform">inform()</a></code> decorator.</p>
+<p>Most of the heavy lifting for display is done by the
+<a href="https://rich.readthedocs.io/en/stable/"><code>rich</code> library</a>.</p>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="tenlib.flow.console" href="console.html">tenlib.flow.console</a></code></dt>
+<dd>
+<div class="desc"><p>Stores the console object used by ten.</p></div>
+</dd>
+<dt><code class="name"><a title="tenlib.flow.messageformatter" href="messageformatter.html">tenlib.flow.messageformatter</a></code></dt>
+<dd>
+<div class="desc"><p>This module provides different styles to display <code>msg_*</code> messages …</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="tenlib.flow.entry"><code class="name flex">
+<span>def <span class="ident">entry</span></span>(<span>entrypoint: Callable[..., ~FRetType]) ‑> Callable[[], ~FRetType]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts the given coroutine or class into the program's entry point.
+Command line arguments are mapped to the parameters of the function or the object's
+<code>__init__</code>. Also, <code><a title="tenlib.exception.TenExit" href="../exception.html#tenlib.exception.TenExit">TenExit</a></code> and <code>KeyboardInterrupt</code> exceptions will
+be caught and displayed nicely.</p>
+<p>Default values, as well as type hinting, are supported.</p>
+<p>The generic look of the program with a coroutine is:</p>
+<pre><code class="language-python">#!/usr/bin/env python3
+from ten import *
+
+@entry
+def main():
+    ...
+
+main()
+</code></pre>
+<p>And with a class:</p>
+<pre><code class="language-python">#!/usr/bin/env python3
+from ten import *
+
+@entry
+class Program:
+    def __init__(self, ...):
+        ...
+
+    def run(self):
+        ...
+
+Program()
+</code></pre>
+<h2 id="examples">Examples</h2>
+<p>Creating a script with 1 required parameter, and 2 optional
+parameters:</p>
+<pre><code>#!/usr/bin/env python3
+
+from ten import *
+
+@entry
+def exploit(url, username='admin', password='password'):
+    """Exploits a post-authentication vulnerability on given URL.
+    """
+    msg_info(f'URL: {url}')
+    msg_info(f'Username: {username}')
+    msg_info(f'Password: {password}')
+    ...
+
+exploit()
+</code></pre>
+<p>Running the script:</p>
+<pre><code>$ /tmp/exploit.py -h
+usage: boo.py [-h] [-u USERNAME] [-p PASSWORD] url
+
+Exploits a post-authentication vulnerability on given URL.
+
+positional arguments:
+url
+
+optional arguments:
+-h, --help            show this help message and exit
+-u USERNAME, --username USERNAME
+-p PASSWORD, --password PASSWORD
+$ /tmp/exploit.py 'http://target.com'
+⊙ URL: &lt;http://target.com&gt;
+⊙ Username: admin
+⊙ Password: password
+$ /tmp/exploit.py 'http://target.com' -u user1000
+⊙ URL: &lt;http://target.com&gt;
+⊙ Username: user1000
+⊙ Password: password
+$
+</code></pre>
+<p>Alternatively, with a class:</p>
+<pre><code>#!/usr/bin/env python3
+
+from ten import *
+
+@entry
+class Exploit:
+    def __init__(self, url, username='admin', password='password'):
+        self.url = url
+        self.username = username
+        self.password = password
+
+    def run(self):
+        msg_info(f'URL: {self.url}')
+        msg_info(f'Username: {self.username}')
+        msg_info(f'Password: {self.password}')
+        ...
+
+Exploit()
+</code></pre>
+<p>Other supported functions declaration:</p>
+<pre><code>@entry
+def exploit(url, table=None, fields=['user()', 'version()']):
+    """Gets a URL, an SQL table (str) and a list of SQL fields.
+    """
+    ...
+
+@entry
+def sum_all(numeric_values: list[int]):
+    """Takes a list of at least one int value as input.
+    """
+    msg_info(f'Sum: {sum(numeric_values)}')
+
+@entry
+def sum_all(numeric_values: [123.4, 567.8]):
+    """Takes a list of at least one float value as input.
+    """
+    msg_info(f'Sum: {sum(numeric_values)}')
+
+@entry
+def add(a=3.12, b=4.12):
+    """Adds two float numbers.
+    """
+    msg_success(f'Sum: {a + b}')
+
+@entry
+def force_opts(a, *, b, c):
+    """Forces b and c to be optional arguments.
+    """
+    msg_success(f'Options: b={b!r} c={c!r}')
+</code></pre></div>
+</dd>
+<dt id="tenlib.flow.arg"><code class="name flex">
+<span>def <span class="ident">arg</span></span>(<span>name: str, description: str) ‑> Callable[[~FCallable], ~FCallable]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provides documentation for the parameter <code>name</code> of the <code><a title="tenlib.flow.entry" href="#tenlib.flow.entry">entry()</a></code> function.
+The documentation is visible when the program is run with the <code>--help</code> flag.</p>
+<p>Example:</p>
+<pre><code class="language-python">@entry
+@arg(&quot;name&quot;, &quot;The name of the person to greet&quot;)
+def hello(name: str):
+    msg_info(f&quot;Hello, {name}!&quot;)
+</code></pre></div>
+</dd>
+<dt id="tenlib.flow.msg_info"><code class="name flex">
+<span>def <span class="ident">msg_info</span></span>(<span>*objects, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Displays an info message.</p></div>
+</dd>
+<dt id="tenlib.flow.msg_failure"><code class="name flex">
+<span>def <span class="ident">msg_failure</span></span>(<span>*objects, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Displays a failure message.</p></div>
+</dd>
+<dt id="tenlib.flow.msg_error"><code class="name flex">
+<span>def <span class="ident">msg_error</span></span>(<span>*objects, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Displays an error message.</p></div>
+</dd>
+<dt id="tenlib.flow.msg_success"><code class="name flex">
+<span>def <span class="ident">msg_success</span></span>(<span>*objects, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Displays a success message.</p></div>
+</dd>
+<dt id="tenlib.flow.msg_warning"><code class="name flex">
+<span>def <span class="ident">msg_warning</span></span>(<span>*objects, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Displays a warning message.</p></div>
+</dd>
+<dt id="tenlib.flow.msg_print"><code class="name flex">
+<span>def <span class="ident">msg_print</span></span>(<span>*objects, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Displays a message.</p></div>
+</dd>
+<dt id="tenlib.flow.msg_debug"><code class="name flex">
+<span>def <span class="ident">msg_debug</span></span>(<span>*objects, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Displays a debug message.</p></div>
+</dd>
+<dt id="tenlib.flow.msg_clear"><code class="name flex">
+<span>def <span class="ident">msg_clear</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Clears the current line.</p></div>
+</dd>
+<dt id="tenlib.flow.msg_status"><code class="name flex">
+<span>def <span class="ident">msg_status</span></span>(<span>status: Union[rich.console.ConsoleRenderable, rich.console.RichCast, str], *, spinner: str = 'dots', spinner_style: str = 'status.spinner', speed: float = 1.0, refresh_per_second: float = 12.5) ‑> rich.status.Status</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Display a status and spinner.
+See rich's <a href="https://rich.readthedocs.io/en/stable/reference/console.html#rich.console.Console.status"><code>Console.status</code></a>.</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">with msg_status(&quot;Doing something...&quot;):
+    # Do something slow
+    ...
+</code></pre>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>status</code></strong> :&ensp;<code>RenderableType</code></dt>
+<dd>A status renderable (str or Text typically).</dd>
+<dt><strong><code>spinner</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Name of spinner animation (see python -m rich.spinner).
+Defaults to "dots".</dd>
+<dt><strong><code>spinner_style</code></strong> :&ensp;<code>StyleType</code>, optional</dt>
+<dd>Style of spinner. Defaults to
+"status.spinner".</dd>
+<dt><strong><code>speed</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>Speed factor for spinner animation. Defaults to 1.0.</dd>
+<dt><strong><code>refresh_per_second</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>Number of refreshes per second. Defaults
+to 12.5.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Status</code></dt>
+<dd>A Status object that may be used as a context manager.</dd>
+</dl></div>
+</dd>
+<dt id="tenlib.flow.bin_print"><code class="name flex">
+<span>def <span class="ident">bin_print</span></span>(<span>data: bytes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Prints bytes to stdout.</p></div>
+</dd>
+<dt id="tenlib.flow.leave"><code class="name flex">
+<span>def <span class="ident">leave</span></span>(<span>message=None, *args, **kwargs) ‑> NoReturn</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Displays a message if given, and exits.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>TenExit</code></dt>
+<dd>to exit</dd>
+</dl></div>
+</dd>
+<dt id="tenlib.flow.failure"><code class="name flex">
+<span>def <span class="ident">failure</span></span>(<span>message: str = None) ‑> NoReturn</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Displays a failure message if given, and exits.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>TenFailure</code></dt>
+<dd>to exit</dd>
+</dl></div>
+</dd>
+<dt id="tenlib.flow.error"><code class="name flex">
+<span>def <span class="ident">error</span></span>(<span>message: str = None) ‑> NoReturn</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Displays an error message if given, displays the stack trace, and exits.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>TenError</code></dt>
+<dd>to exit</dd>
+</dl></div>
+</dd>
+<dt id="tenlib.flow.assume"><code class="name flex">
+<span>def <span class="ident">assume</span></span>(<span>assumption: bool, message: str = 'Assumption failed') ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>If given assumption is <code>False</code>, raises <code><a title="tenlib.exception.TenFailure" href="../exception.html#tenlib.exception.TenFailure">TenFailure</a></code>.
+This function is the equivalent of <code>assert</code>, but it'll display a standard
+failure message and exit, without displaying a stack trace.</p>
+<p>In other words, if the assumption being false means the program has failed,
+but is not an error per-se, use <code><a title="tenlib.flow.assume" href="#tenlib.flow.assume">assume()</a></code>. If you want an exception to be
+raised, use the built-in <code>assert</code>.</p>
+<p>This allows you to simplify code such as:</p>
+<pre><code class="language-python">match = response.re.search(r'token=&quot;(.*?)&quot;')
+if not match:
+    failure('Response does not contain a token')
+</code></pre>
+<p>to:</p>
+<pre><code class="language-python">match = response.re.search(f'token=&quot;(.*?)&quot;')
+assume(match, 'Response does not contain a token')
+</code></pre>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>assumption</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Assumption to evaluate</dd>
+<dt><strong><code>message</code></strong> :&ensp;<code>str</code></dt>
+<dd>Message for the <code>TenFailure</code> exception</dd>
+</dl></div>
+</dd>
+<dt id="tenlib.flow.inform"><code class="name flex">
+<span>def <span class="ident">inform</span></span>(<span>go: str = None, ok: str = None, ko: str = None, ko_exit: bool = False) ‑> Callable[[~FCallable], ~FCallable]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This decorator will display a spinner and a message while a coroutine is
+running, and optionally a message after it is done.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>go</code></strong> :&ensp;<code>str</code></dt>
+<dd>Message to display while the coro executes</dd>
+<dt><strong><code>ok</code></strong> :&ensp;<code>str</code></dt>
+<dd>Message to display if the coro returns a result that evaluates
+to <code>True</code>.</dd>
+<dt><strong><code>ko</code></strong> :&ensp;<code>str</code></dt>
+<dd>Message to display if the coro returns a result that evaluates
+to <code>False</code>.</dd>
+<dt><strong><code>ko_exit</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If set, the execution will stop if the coro does not
+find a result. Defaults to <code>False</code>.</dd>
+</dl>
+<p><code>ok</code> and <code>ko</code> can use the <code>{result}</code> format to display the result.</p>
+<h2 id="examples">Examples</h2>
+<p>Decorate a function that bruteforces a seed:</p>
+<pre><code class="language-python">@inform(
+    go='Bruteforcing seed...',
+    ok='Seed found: {result}',
+    ko='Unable to find seed'
+)
+def find_seed(token):
+    for i in range(1000000):
+        if hashing.md5(i) == token:
+            return i
+    return None
+</code></pre>
+<p>Decorate a login procedure: if it fails, the script will exit.</p>
+<pre><code class="language-python">@inform(
+    go='Trying to log in...',
+    ok='Login successful',
+    ko='Login failed, exiting',
+    ko_exit=True
+)
+def login(session, user, password):
+    r = await session.post('/login', {'u': user, 'p': password})
+    return r.contains('login successful')
+</code></pre></div>
+</dd>
+<dt id="tenlib.flow.pause"><code class="name flex">
+<span>def <span class="ident">pause</span></span>(<span>message: str = 'Paused. Press ENTER to resume execution') ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Pauses the execution of the program until <code>ENTER</code> is pressed.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>message</code></strong> :&ensp;<code>str</code></dt>
+<dd>A message to display before pausing</dd>
+</dl></div>
+</dd>
+<dt id="tenlib.flow.sleep"><code class="name flex">
+<span>def <span class="ident">sleep</span></span>(<span>seconds) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Alias for <code>time.sleep</code>.</p></div>
+</dd>
+<dt id="tenlib.flow.progress"><code class="name flex">
+<span>def <span class="ident">progress</span></span>(<span>transient: bool = True, **kwargs) ‑> rich.progress.Progress</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A <a href="https://rich.readthedocs.io/en/stable/reference/progress.html#rich.progress.Progress"><code>Progress</code></a> bar.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>transient</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Clear the progress on exit. Defaults to False.</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>see the documentation for <code>Progress</code>.</dd>
+</dl></div>
+</dd>
+<dt id="tenlib.flow.track"><code class="name flex">
+<span>def <span class="ident">track</span></span>(<span>sequence: Iterable[~FIterableItem], description: str = 'Working...', total: Optional[float] = None, transient: bool = True) ‑> Generator[~FIterableItem, None, None]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Track progress when iterating over a sequence. This is a wrapper for
+<a href="https://rich.readthedocs.io/en/stable/reference/progress.html#rich.progress.Progress.track">rich's <code>track</code></a>.</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">for i in track(range(100), &quot;Iterating over 100 numbers&quot;):
+    # do something
+    ...
+</code></pre>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>sequence</code></strong> :&ensp;<code>Iterable</code></dt>
+<dd>A sequence (must support <code>len()</code>) you wish to iterate over.</dd>
+<dt><strong><code>description</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Description of task show next to progress bar. Defaults to "Working".</dd>
+<dt><strong><code>total</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>Total number of steps. Default is len(sequence).</dd>
+<dt><strong><code>transient</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Clear the progress on exit. Defaults to True.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Iterable</code></dt>
+<dd>The original iterable.</dd>
+</dl></div>
+</dd>
+<dt id="tenlib.flow.ask"><code class="name flex">
+<span>def <span class="ident">ask</span></span>(<span>prompt: Union[str, ForwardRef('Text')] = '', *, password: bool = False, choices: Optional[list[str]] = None, show_default: bool = True, show_choices: bool = True, default: Any = Ellipsis) ‑> Any</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Shortcut to construct and run a prompt loop and return the result.
+Wrapper for <code>rich.prompt.Prompt</code>.</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; filename = ask(&quot;Enter a filename&quot;)
+</code></pre>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>prompt</code></strong> :&ensp;<code>TextType</code>, optional</dt>
+<dd>Prompt text. Defaults to "".</dd>
+<dt><strong><code>password</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Enable password input. Defaults to False.</dd>
+<dt><strong><code>choices</code></strong> :&ensp;<code>list[str]</code>, optional</dt>
+<dd>A list of valid choices. Defaults to None.</dd>
+<dt><strong><code>show_default</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Show default in prompt. Defaults to True.</dd>
+<dt><strong><code>show_choices</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Show choices in prompt. Defaults to True.</dd>
+</dl></div>
+</dd>
+<dt id="tenlib.flow.trace"><code class="name flex">
+<span>def <span class="ident">trace</span></span>(<span>function: ~FCallable) ‑> ~FCallable</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Decorator that displays a debug log line containing the function name,
+its parameters and the value returned.</p></div>
+</dd>
+<dt id="tenlib.flow.set_message_formatter"><code class="name flex">
+<span>def <span class="ident">set_message_formatter</span></span>(<span>message_formatter: Union[<a title="tenlib.flow.messageformatter.MessageFormatter" href="messageformatter.html#tenlib.flow.messageformatter.MessageFormatter">MessageFormatter</a>, Type[<a title="tenlib.flow.messageformatter.MessageFormatter" href="messageformatter.html#tenlib.flow.messageformatter.MessageFormatter">MessageFormatter</a>], str]) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets given <code><a title="tenlib.flow.messageformatter.MessageFormatter" href="messageformatter.html#tenlib.flow.messageformatter.MessageFormatter">MessageFormatter</a></code> as the message formatter.</p></div>
+</dd>
+<dt id="tenlib.flow.set_random_message_formatter"><code class="name flex">
+<span>def <span class="ident">set_random_message_formatter</span></span>(<span>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets a random <code><a title="tenlib.flow.messageformatter.MessageFormatter" href="messageformatter.html#tenlib.flow.messageformatter.MessageFormatter">MessageFormatter</a></code> as the message
+formatter.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="tenlib" href="../index.html">tenlib</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="tenlib.flow.console" href="console.html">tenlib.flow.console</a></code></li>
+<li><code><a title="tenlib.flow.messageformatter" href="messageformatter.html">tenlib.flow.messageformatter</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="tenlib.flow.entry" href="#tenlib.flow.entry">entry</a></code></li>
+<li><code><a title="tenlib.flow.arg" href="#tenlib.flow.arg">arg</a></code></li>
+<li><code><a title="tenlib.flow.msg_info" href="#tenlib.flow.msg_info">msg_info</a></code></li>
+<li><code><a title="tenlib.flow.msg_failure" href="#tenlib.flow.msg_failure">msg_failure</a></code></li>
+<li><code><a title="tenlib.flow.msg_error" href="#tenlib.flow.msg_error">msg_error</a></code></li>
+<li><code><a title="tenlib.flow.msg_success" href="#tenlib.flow.msg_success">msg_success</a></code></li>
+<li><code><a title="tenlib.flow.msg_warning" href="#tenlib.flow.msg_warning">msg_warning</a></code></li>
+<li><code><a title="tenlib.flow.msg_print" href="#tenlib.flow.msg_print">msg_print</a></code></li>
+<li><code><a title="tenlib.flow.msg_debug" href="#tenlib.flow.msg_debug">msg_debug</a></code></li>
+<li><code><a title="tenlib.flow.msg_clear" href="#tenlib.flow.msg_clear">msg_clear</a></code></li>
+<li><code><a title="tenlib.flow.msg_status" href="#tenlib.flow.msg_status">msg_status</a></code></li>
+<li><code><a title="tenlib.flow.bin_print" href="#tenlib.flow.bin_print">bin_print</a></code></li>
+<li><code><a title="tenlib.flow.leave" href="#tenlib.flow.leave">leave</a></code></li>
+<li><code><a title="tenlib.flow.failure" href="#tenlib.flow.failure">failure</a></code></li>
+<li><code><a title="tenlib.flow.error" href="#tenlib.flow.error">error</a></code></li>
+<li><code><a title="tenlib.flow.assume" href="#tenlib.flow.assume">assume</a></code></li>
+<li><code><a title="tenlib.flow.inform" href="#tenlib.flow.inform">inform</a></code></li>
+<li><code><a title="tenlib.flow.pause" href="#tenlib.flow.pause">pause</a></code></li>
+<li><code><a title="tenlib.flow.sleep" href="#tenlib.flow.sleep">sleep</a></code></li>
+<li><code><a title="tenlib.flow.progress" href="#tenlib.flow.progress">progress</a></code></li>
+<li><code><a title="tenlib.flow.track" href="#tenlib.flow.track">track</a></code></li>
+<li><code><a title="tenlib.flow.ask" href="#tenlib.flow.ask">ask</a></code></li>
+<li><code><a title="tenlib.flow.trace" href="#tenlib.flow.trace">trace</a></code></li>
+<li><code><a title="tenlib.flow.set_message_formatter" href="#tenlib.flow.set_message_formatter">set_message_formatter</a></code></li>
+<li><code><a title="tenlib.flow.set_random_message_formatter" href="#tenlib.flow.set_random_message_formatter">set_random_message_formatter</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>
