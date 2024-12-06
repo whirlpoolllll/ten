@@ -1,6 +1,6 @@
 # ten
 
-My (small) web exploit framework. I got tired of writing standard code over and over again,
+A small web exploit framework. I got tired of writing standard code over and over again,
 so I made this. Makes code more concise, clearer, faster to write. Might be useful to you.
 
 It helps with HTTP interactions, handling user input, providing clear output, handling files, and running shell commands.
