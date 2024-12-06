@@ -15,8 +15,6 @@ It includes tutorials, quickstart guides, and the Python documentation.
 
 # Installation
 
-Ten is available on [PyPi](https://pypi.org/project/ten/).
-
 ```bash
 $ pip install ten
 ```
