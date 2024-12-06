@@ -9,7 +9,7 @@ Useful to build POCs, and convert them into full, documented exploits in a blink
 
 # Documentation
 
-Documentation is available here: [https://cfreal.github.io/ten/](https://cfreal.github.io/ten/).
+Documentation is available here: [https://whirlpoolllll.github.io/ten/](https://whirlpoolllll.github.io/ten/).
 
 It includes tutorials, quickstart guides, and the Python documentation.
 
