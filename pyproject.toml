@@ -2,7 +2,7 @@
 name = "ten"
 version = "0.1.5"
 description = "A (small) web exploit framework"
-authors = ["Charles \"cfreal\" Fol <folcharles@gmail.com>"]
+authors = ["storm \"sekc\"]
 readme = "README.md"
 packages = [
     { include = "ten" },
